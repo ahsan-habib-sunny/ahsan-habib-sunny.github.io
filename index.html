@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ahsan Habib Sunny | BI & Analytics Engineer</title>
+<meta name="description" content="Portfolio of Ahsan Habib Sunny: BI and analytics engineer working with SQL, Power BI, dbt, Python and PySpark on Databricks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fafaf9; --surface:#ffffff; --text:#1c1917; --muted:#57534e; --faint:#a8a29e;
+  --border:#e7e5e4; --accent:#0f766e; --accent-soft:#ccfbf1; --chip:#f5f5f4;
+  --shadow:0 1px 2px rgba(0,0,0,.04),0 4px 16px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0c0a09; --surface:#171412; --text:#f5f5f4; --muted:#a8a29e; --faint:#78716c;
+    --border:#292524; --accent:#2dd4bf; --accent-soft:#134e4a; --chip:#1f1b19;
+    --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0c0a09; --surface:#171412; --text:#f5f5f4; --muted:#a8a29e; --faint:#78716c;
+  --border:#292524; --accent:#2dd4bf; --accent-soft:#134e4a; --chip:#1f1b19;
+  --shadow:none;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:700;text-decoration:none;letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+.links{display:flex;gap:22px;align-items:center}
+.links a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:500}
+.links a:hover{color:var(--text)}
+.theme{background:none;border:1px solid var(--border);color:var(--muted);width:34px;height:34px;border-radius:8px;cursor:pointer;display:grid;place-items:center}
+.theme:hover{color:var(--text)}
+@media (max-width:640px){.links a.hide-sm{display:none}}
+
+/* hero */
+.hero{padding:88px 0 64px}
+.eyebrow{color:var(--accent);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+h1{font-size:clamp(36px,6vw,56px);line-height:1.08;letter-spacing:-.035em;font-weight:700;max-width:760px}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{color:var(--muted);font-size:18px;max-width:640px;margin-top:22px}
+.cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--border);background:var(--surface)}
+.btn.primary{background:var(--text);color:var(--bg);border-color:var(--text)}
+.btn:hover{transform:translateY(-1px)}
+.meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:36px;color:var(--faint);font-size:14px}
+
+/* sections */
+section{padding:64px 0;border-top:1px solid var(--border)}
+h2{font-size:28px;letter-spacing:-.025em;margin-bottom:8px}
+.sub{color:var(--muted);margin-bottom:36px;max-width:600px}
+
+/* projects */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:border-color .2s}
+.card:hover{border-color:var(--accent)}
+.card.feature{grid-column:1/-1}
+.tag{font-size:12px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.06em}
+.card h3{font-size:20px;letter-spacing:-.02em;margin:8px 0 10px}
+.card p{color:var(--muted);font-size:15px}
+.card ul{margin:14px 0 0 18px;color:var(--muted);font-size:14.5px}
+.card li{margin-bottom:5px}
+.card li b{color:var(--text);font-weight:600}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.stack span{font-size:12px;background:var(--chip);border:1px solid var(--border);padding:3px 9px;border-radius:999px;color:var(--muted)}
+.card .more{margin-top:auto;padding-top:20px;display:flex;gap:16px}
+.card .more a{font-size:14px;font-weight:600;color:var(--accent);text-decoration:none}
+.card .more a:hover{text-decoration:underline}
+.card.placeholder{border-style:dashed;box-shadow:none;background:transparent}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:20px}
+.kpi{border:1px solid var(--border);border-radius:10px;padding:14px;background:var(--bg)}
+.kpi b{display:block;font-size:24px;letter-spacing:-.02em}
+.kpi span{font-size:13px;color:var(--muted)}
+.minor{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;color:var(--muted);font-size:14px}
+.minor a{font-size:14px;text-decoration:none;border:1px solid var(--border);padding:6px 12px;border-radius:8px;background:var(--surface)}
+.minor a:hover{border-color:var(--accent)}
+
+.thumb{display:block;margin:-24px -24px 18px;border-bottom:1px solid var(--border);border-radius:14px 14px 0 0;overflow:hidden;background:var(--chip);aspect-ratio:16/9}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .3s}
+.card:hover .thumb img{transform:scale(1.02)}
+.card.feature{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:start}
+.card.feature .thumb{margin:0;border:1px solid var(--border);border-radius:10px;aspect-ratio:auto}
+.card.feature .thumb img{height:auto}
+@media (max-width:820px){.card.feature{grid-template-columns:1fr}}
+code{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.86em;background:var(--chip);padding:1px 5px;border-radius:4px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:-12px 0 28px}
+.filters button{font:inherit;font-size:14px;font-weight:500;padding:7px 14px;border-radius:999px;border:1px solid var(--border);background:var(--surface);color:var(--muted);cursor:pointer}
+.filters button.on{background:var(--text);color:var(--bg);border-color:var(--text)}
+.card.hidden{display:none}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.skill h4{font-size:14px;color:var(--faint);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;font-weight:600}
+.skill .stack{margin-top:0}
+.skill .stack span{font-size:13.5px;color:var(--text)}
+
+/* experience */
+.timeline{display:grid;gap:26px}
+.job{display:grid;grid-template-columns:170px 1fr;gap:20px}
+.job .when{color:var(--faint);font-size:14px;padding-top:2px}
+.job h3{font-size:17px;letter-spacing:-.01em}
+.job .org{color:var(--accent);font-weight:500;font-size:15px}
+.job p,.job ul{color:var(--muted);font-size:15px;margin-top:6px}
+.job ul{margin-left:18px}
+.job li{margin-bottom:4px}
+.job li b{color:var(--text)}
+@media (max-width:640px){.job{grid-template-columns:1fr;gap:4px}}
+
+/* contact */
+.contact{text-align:center;padding:80px 0}
+.contact .cta{justify-content:center}
+footer{border-top:1px solid var(--border);padding:28px 0;color:var(--faint);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo">ahsan<span>.</span></a>
+    <div class="links">
+      <a href="#projects">Projects</a>
+      <a href="#skills" class="hide-sm">Skills</a>
+      <a href="#experience" class="hide-sm">Experience</a>
+      <a href="#contact">Contact</a>
+      <button class="theme" id="theme" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">BI &amp; Analytics Engineer</div>
+    <h1>I turn raw data into <em>models, pipelines and dashboards</em> people actually use.</h1>
+    <p class="lead">I'm Ahsan, a Business Intelligence Analyst with an MSc in Data Science (Distinction) and a BSc in Statistics, with analytics experience in hospitality, edtech, marketing and research. I work across the whole analytics stack: SQL and dimensional modelling for the warehouse, PySpark on Databricks for pipelines, and Power BI for the story at the end.</p>
+    <div class="cta">
+      <a class="btn primary" href="#projects">View projects</a>
+      <a class="btn" href="https://github.com/ahsan-habib-sunny" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/ahsansunny" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="mailto:ahsanhabibsunny85@gmail.com">Email me</a>
+    </div>
+    <div class="meta">
+      <span>📍 Greater Manchester, UK</span>
+      <span>💼 BI Analyst at LQ Dining</span>
+      <span>🎓 MSc Data Science, Distinction</span>
+    </div>
+  </div>
+</header>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="sub">End-to-end work, from raw source data through pipelines and models to decisions.</p>
+    <div class="filters" role="tablist">
+      <button class="on" data-f="all">All</button>
+      <button data-f="bi">Power BI &amp; Excel</button>
+      <button data-f="de">Data engineering</button>
+      <button data-f="sql">SQL</button>
+      <button data-f="ml">Machine learning</button>
+    </div>
+    <div class="grid">
+      <article class="card feature" data-cat="bi">
+        <a class="thumb" href="https://github.com/ahsan-habib-sunny/Dashboard-Power-BI" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/ahsan-habib-sunny/Dashboard-Power-BI/main/Images/Executive%20Dashboard.png" alt="LQ Dining executive overview dashboard" loading="lazy"></a>
+        <div class="feature-body">
+        <div class="tag">Flagship · Power BI · DAX · Data modelling</div>
+        <h3>LQ Dining: Restaurant Performance Dashboard</h3>
+        <p>An end-to-end Power BI report for a fictional four-branch restaurant group in Manchester, with pages for the owner, operations, marketing, head chefs and finance. Headline sales are up 21% year on year, but the report shows the business is less healthy than that number suggests.</p>
+        <div class="kpis">
+          <div class="kpi"><b>+21.2%</b><span>Net sales YoY</span></div>
+          <div class="kpi"><b>−4.1%</b><span>Like-for-like sales</span></div>
+          <div class="kpi"><b>32.9%</b><span>Food cost vs 30% target</span></div>
+          <div class="kpi"><b>+412%</b><span>ROI of best campaign</span></div>
+        </div>
+        <ul>
+          <li><b>Star schema:</b> 9 fact tables, 10 dimensions and a recipe bridge table, with 36 one-to-many relationships.</li>
+          <li><b>Found the hidden problem:</b> growth came from one new branch while the existing estate shrank.</li>
+          <li><b>Six report pages</b> for different stakeholders, plus a branch drill-through page.</li>
+        </ul>
+        <div class="stack"><span>Power BI</span><span>DAX</span><span>Power Query</span><span>Star schema</span><span>Python (synthetic data)</span></div>
+        <div class="more"><a href="https://github.com/ahsan-habib-sunny/Dashboard-Power-BI" target="_blank" rel="noopener">View on GitHub →</a></div>
+        </div>
+      </article>
+      <article class="card" data-cat="de">
+        <div class="tag">Data engineering · Databricks · AWS</div>
+        <h3>FMCG Data Engineering Pipeline</h3>
+        <p>An end-to-end pipeline on Databricks and AWS S3 that moves FMCG sales data through Bronze, Silver and Gold layers into analytics-ready fact and dimension tables.</p><ul><li><b>Full and incremental loads</b> with Delta Lake <code>MERGE</code> upserts</li><li>Data quality rules, deduplication and multi-format date parsing</li><li>Fact, dimension and date tables ready for Power BI</li></ul>
+        <div class="stack"><span>PySpark</span><span>Delta Lake</span><span>AWS S3</span><span>Unity Catalog</span><span>Change Data Feed</span></div>
+        <div class="more"><a href="https://github.com/ahsan-habib-sunny/FMCG-Data-Engineering-Pipeline" target="_blank" rel="noopener">View on GitHub →</a></div>
+      </article>
+      <article class="card" data-cat="de">
+        <a class="thumb" href="https://github.com/ahsan-habib-sunny/databricks-medallion-pipeline" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/ahsan-habib-sunny/databricks-medallion-pipeline/main/architecture/architecture_diagram.png" alt="Databricks Medallion Pipeline screenshot" loading="lazy"></a><div class="tag">Data engineering · Databricks</div>
+        <h3>Databricks Medallion Pipeline</h3>
+        <p>Ingests six raw CRM and ERP datasets, cleans and conforms them, and delivers a star schema (<code>dim_customers</code>, <code>dim_products</code>, <code>fact_sales</code>) for BI.</p><ul><li>Window-function deduplication and value standardisation</li><li>Scheduled daily with Databricks Workflows task dependencies</li></ul>
+        <div class="stack"><span>PySpark</span><span>Delta Lake</span><span>Databricks Workflows</span><span>Databricks SQL</span></div>
+        <div class="more"><a href="https://github.com/ahsan-habib-sunny/databricks-medallion-pipeline" target="_blank" rel="noopener">View on GitHub →</a></div>
+      </article>
+      <article class="card" data-cat="de sql">
+        <div class="tag">Data warehousing · SQL Server</div>
+        <h3>SQL Data Warehouse</h3>
+        <p>A SQL Server data warehouse built from deliberately messy CRM and ERP extracts (1M+ sales rows): ETL, cleaning and validation, then a star schema for analytics.</p><ul><li>Handles duplicates, orphan keys, mismatched join keys and broken dates</li><li>Staging → cleaned → warehouse layers</li></ul>
+        <div class="stack"><span>SQL Server</span><span>T-SQL</span><span>ETL</span><span>Star schema</span><span>Data quality</span></div>
+        <div class="more"><a href="https://github.com/ahsan-habib-sunny/sql-data-warehouse-project" target="_blank" rel="noopener">View on GitHub →</a></div>
+      </article>
+      <article class="card" data-cat="bi">
+        <a class="thumb" href="https://github.com/ahsan-habib-sunny/Power-BI" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/ahsan-habib-sunny/Power-BI/main/Chocolate%20Sales%20Dashboard.png" alt="Power BI Dashboards Collection screenshot" loading="lazy"></a><div class="tag">Power BI</div>
+        <h3>Power BI Dashboards Collection</h3>
+        <p>Earlier Power BI work: Chocolate Sales, HR and Insurance Policy dashboards, each with a published interactive report.</p>
+        <div class="stack"><span>Power BI</span><span>DAX</span><span>Data visualisation</span></div>
+        <div class="more"><a href="https://github.com/ahsan-habib-sunny/Power-BI" target="_blank" rel="noopener">View on GitHub →</a></div>
+      </article>
+      <article class="card" data-cat="bi">
+        <a class="thumb" href="https://github.com/ahsan-habib-sunny/excel-projects" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/ahsan-habib-sunny/excel-projects/main/images/Excel%20Project%201.png" alt="Call Centre Performance (Excel) screenshot" loading="lazy"></a><div class="tag">Excel</div>
+        <h3>Call Centre Performance (Excel)</h3>
+        <p>An Excel dashboard and stakeholder write-up of 1,000 calls and $96.6K revenue. It found weekend demand peaks and that higher call volume did not mean higher revenue.</p>
+        <div class="stack"><span>Excel</span><span>Pivot tables</span><span>Dashboard design</span><span>Storytelling</span></div>
+        <div class="more"><a href="https://github.com/ahsan-habib-sunny/excel-projects" target="_blank" rel="noopener">View on GitHub →</a></div>
+      </article>
+      <article class="card" data-cat="sql">
+        <div class="tag">SQL</div>
+        <h3>SQL A–Z for Data Professionals</h3>
+        <p>A structured SQL resource from foundations to advanced topics: joins, CTEs, views, indexing, window functions, query optimisation, stored procedures and case studies.</p>
+        <div class="stack"><span>SQL</span><span>Window functions</span><span>CTEs</span><span>Stored procedures</span></div>
+        <div class="more"><a href="https://github.com/ahsan-habib-sunny/SQL-A-Z-for-Data-Professionals" target="_blank" rel="noopener">View on GitHub →</a></div>
+      </article>
+      <article class="card" data-cat="sql">
+        <div class="tag">SQL</div>
+        <h3>Complex SQL Interview Practice</h3>
+        <p>Solutions to complex SQL interview questions asked at a range of companies. I worked through each one myself before checking it against the reference answer.</p>
+        <div class="stack"><span>SQL</span><span>Problem solving</span><span>Interview prep</span></div>
+        <div class="more"><a href="https://github.com/ahsan-habib-sunny/Complex-SQL-Practice-for-Interview" target="_blank" rel="noopener">View on GitHub →</a></div>
+      </article>
+      <article class="card" data-cat="ml">
+        <div class="tag">Machine learning · Python</div>
+        <h3>Data Science Salary Estimator</h3>
+        <p>Predicts data science salaries from Glassdoor job listings. Features are engineered from job description text (Python, AWS, Spark, Excel), and a tuned Random Forest cut MAE from 18.7 to 12.4.</p>
+        <div class="stack"><span>Python</span><span>scikit-learn</span><span>pandas</span><span>GridSearchCV</span><span>Feature engineering</span></div>
+        <div class="more"><a href="https://github.com/ahsan-habib-sunny/glassdoor_jobs_project" target="_blank" rel="noopener">View on GitHub →</a></div>
+      </article>
+      <article class="card" data-cat="ml">
+        <div class="tag">Machine learning · Data mining</div>
+        <h3>Machine Learning &amp; Data Mining</h3>
+        <p>A machine learning and data mining project from my MSc, using supervised and unsupervised models on customer data.</p><ul><li><b>Classification:</b> predicting customer churn and comparing models on how well they find at-risk customers.</li><li><b>Clustering:</b> segmenting customers into groups with distinct behaviour for targeted marketing.</li></ul>
+        <div class="stack"><span>Python</span><span>Classification</span><span>Clustering</span><span>Churn analysis</span><span>Customer segmentation</span></div>
+        <div class="more"><a href="https://github.com/ahsan-habib-sunny/MLDM" target="_blank" rel="noopener">View on GitHub →</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Toolkit</h2>
+    <p class="sub">What I use day to day, and what I'm building on.</p>
+    <div class="skills">
+      <div class="skill"><h4>Languages</h4><div class="stack"><span>SQL</span><span>Python</span><span>R</span><span>PySpark</span><span>DAX</span></div></div>
+      <div class="skill"><h4>BI &amp; reporting</h4><div class="stack"><span>Power BI</span><span>Tableau</span><span>Looker Studio</span><span>Excel</span></div></div>
+      <div class="skill"><h4>Data platforms</h4><div class="stack"><span>Databricks</span><span>Snowflake</span><span>BigQuery</span><span>Google Cloud</span><span>SQL Server</span><span>AWS S3</span></div></div>
+      <div class="skill"><h4>Engineering</h4><div class="stack"><span>dbt</span><span>Airflow</span><span>Delta Lake</span><span>Git &amp; GitHub</span></div></div>
+      <div class="skill"><h4>Modelling</h4><div class="stack"><span>Kimball / star schema</span><span>Medallion</span><span>SCD Type 2</span><span>KPI design</span></div></div>
+      <div class="skill"><h4>Stats &amp; ML</h4><div class="stack"><span>A/B testing</span><span>Hypothesis testing</span><span>Regression</span><span>Time series</span><span>Clustering</span><span>Monte Carlo</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <p class="sub">Analytics roles across hospitality, edtech, marketing and research.</p>
+    <div class="timeline">
+      <div class="job">
+        <div class="when">Feb 2025 – Present</div>
+        <div><h3>Business Intelligence Analyst</h3><div class="org">LQ Dining Ltd · Manchester</div>
+        <ul><li>Build and maintain Power BI dashboards tracking site-level sales, covers, spend per head and other trading KPIs for operations and senior management.</li><li>Write SQL against EPOS transaction data for like-for-like site comparisons and day-part and peak-hour trading patterns.</li><li>Menu and product-mix analysis to support menu engineering and pricing, and labour-cost-to-sales analysis to align rotas with demand.</li></ul></div>
+      </div>
+      <div class="job">
+        <div class="when">Jun 2024 – Dec 2024</div>
+        <div><h3>Data Analyst</h3><div class="org">Third Space Learning · London</div>
+        <ul><li>Analysed a 4M-row dataset in Google BigQuery, cutting query processing time by <b>40%</b>.</li><li>Built a demand-supply time series model in Python that improved forecast accuracy by <b>25%+</b>.</li><li>Used Monte Carlo simulation to forecast tutor recruitment and time-slot allocation, improving resource efficiency by <b>20%</b>.</li></ul></div>
+      </div>
+      <div class="job">
+        <div class="when">Aug 2022 – Jan 2023</div>
+        <div><h3>Data Analyst</h3><div class="org">Be Data Solutions · London</div>
+        <ul><li>Led a team analysing <b>5 TB</b> of marketing data, including Google Analytics data in Snowflake.</li><li>Wrote SQL for performance analysis and designed pipelines to automate data cleansing and preprocessing.</li><li>Built interactive dashboards in Power BI and Google Data Studio.</li><li>RFM segmentation in Python lifted targeted marketing effectiveness by <b>12%</b>; built a K-means loyalty model in PySpark on Azure Databricks.</li></ul></div>
+      </div>
+      <div class="job">
+        <div class="when">Jul 2020 – May 2022</div>
+        <div><h3>Research Assistant &amp; Data Analyst</h3><div class="org">University Research Center, SUST · Bangladesh</div>
+        <ul><li>Designed data pipelines to automate cleansing and processing.</li><li>Analysed unstructured data with Python, R and statistical methods, and reported findings in Tableau.</li></ul></div>
+      </div>
+    </div>
+    <h2 style="margin-top:56px">Education</h2>
+    <p class="sub">Statistics first, then data science.</p>
+    <div class="timeline">
+      <div class="job">
+        <div class="when">Sep 2024</div>
+        <div><h3>MSc Data Science, Distinction (79%)</h3><div class="org">University of Salford · UK</div>
+        <ul><li>Coursework: Applied Statistics &amp; Data Visualisation, Machine Learning &amp; Data Mining, Big Data Tools &amp; Techniques, Advanced Databases.</li></ul></div>
+      </div>
+      <div class="job">
+        <div class="when">Dec 2021</div>
+        <div><h3>BSc Statistics, First Class (3.53 / 4)</h3><div class="org">Shahjalal University of Science and Technology · Bangladesh</div>
+        </div>
+      </div>
+      <div class="job">
+        <div class="when">Volunteer</div>
+        <div><h3>Mentor, Data Analysis Workshop</h3><div class="org">SUST Science Arena</div>
+        <ul><li>Taught hands-on data analysis with SQL, Python and Excel, and visualisation with Power BI.</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p class="sub" style="margin:8px auto 0">Open to BI, analytics engineering and data engineering roles.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:ahsanhabibsunny85@gmail.com">ahsanhabibsunny85@gmail.com</a>
+      <a class="btn" href="https://github.com/ahsan-habib-sunny" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/ahsansunny" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="y"></span> Ahsan Habib Sunny · Hosted on GitHub Pages</footer>
+
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+const root=document.documentElement;
+try{const s=localStorage.getItem('theme');if(s)root.dataset.theme=s;}catch(e){}
+document.getElementById('theme').onclick=()=>{
+  const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme=dark?'light':'dark';
+  try{localStorage.setItem('theme',root.dataset.theme);}catch(e){}
+};
+document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.toggle('on',x===b));
+  const f=b.dataset.f;
+  document.querySelectorAll('#projects .card').forEach(c=>c.classList.toggle('hidden',f!=='all'&&!c.dataset.cat.split(' ').includes(f)));
+});
+</script>
+</body>
+</html>
