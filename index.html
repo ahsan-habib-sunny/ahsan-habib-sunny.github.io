@@ -90,6 +90,7 @@ h2{font-size:28px;letter-spacing:-.025em;margin-bottom:8px}
 .thumb{display:block;margin:-24px -24px 18px;border-bottom:1px solid var(--border);border-radius:14px 14px 0 0;overflow:hidden;background:var(--chip);aspect-ratio:16/9}
 .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .3s}
 .card:hover .thumb img{transform:scale(1.02)}
+.card.feature + .card.feature{margin-top:0}
 .card.feature{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:start}
 .card.feature .thumb{margin:0;border:1px solid var(--border);border-radius:10px;aspect-ratio:auto}
 .card.feature .thumb img{height:auto}
@@ -172,10 +173,31 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--faint);font
       <button data-f="ml">Machine learning</button>
     </div>
     <div class="grid">
+      <article class="card feature" data-cat="bi de">
+        <a class="thumb" href="https://github.com/ahsan-habib-sunny/UK-Ecommerce-Analytics" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/ahsan-habib-sunny/UK-Ecommerce-Analytics/main/docs/images/executive.png" alt="UK e-commerce executive overview dashboard" loading="lazy"></a>
+        <div class="feature-body">
+        <div class="tag">Flagship · Snowflake · Microsoft Fabric · Power BI</div>
+        <h3>UK E-commerce Analytics: Snowflake → Fabric → Power BI</h3>
+        <p>An end-to-end build for a fictional UK online retailer. 8.1M rows of synthetic data move from a Python generator through a Snowflake warehouse and a Fabric Dataflow Gen2 with incremental refresh, into a secured Power BI model and app for regional managers.</p>
+        <div class="kpis">
+          <div class="kpi"><b>−93%</b><span>Model size (756 → 56 MB)</span></div>
+          <div class="kpi"><b>21 → 3 min</b><span>Dataflow refresh</span></div>
+          <div class="kpi"><b>2:13 → 0:26</b><span>Model refresh</span></div>
+          <div class="kpi"><b>31</b><span>Automated data tests</span></div>
+        </div>
+        <ul>
+          <li><b>Found a "successful" promotion that lost money:</b> 1.2× ROAS but −77% margin ROI, once pull-forward demand was counted.</li>
+          <li><b>Data quality first:</b> 7 source issues repaired and flagged in STAGING, plus 1,500 fake test orders found by profiling.</li>
+          <li><b>Industry setup:</b> incremental refresh on dataflow and model, dynamic RLS from a security table, a daily Fabric pipeline, PBIP in Git.</li>
+        </ul>
+        <div class="stack"><span>Snowflake</span><span>Fabric Dataflow Gen2</span><span>Power BI</span><span>DAX</span><span>Python</span><span>Incremental refresh</span><span>RLS</span></div>
+        <div class="more"><a href="https://github.com/ahsan-habib-sunny/UK-Ecommerce-Analytics" target="_blank" rel="noopener">View on GitHub →</a><a href="https://github.com/ahsan-habib-sunny/UK-Ecommerce-Analytics/blob/main/docs/insights.md" target="_blank" rel="noopener">Read the insights →</a></div>
+        </div>
+      </article>
       <article class="card feature" data-cat="bi">
         <a class="thumb" href="https://github.com/ahsan-habib-sunny/Dashboard-Power-BI" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/ahsan-habib-sunny/Dashboard-Power-BI/main/Images/Executive%20Dashboard.png" alt="LQ Dining executive overview dashboard" loading="lazy"></a>
         <div class="feature-body">
-        <div class="tag">Flagship · Power BI · DAX · Data modelling</div>
+        <div class="tag">Power BI · DAX · Data modelling</div>
         <h3>LQ Dining: Restaurant Performance Dashboard</h3>
         <p>An end-to-end Power BI report for a fictional four-branch restaurant group in Manchester, with pages for the owner, operations, marketing, head chefs and finance. Headline sales are up 21% year on year, but the report shows the business is less healthy than that number suggests.</p>
         <div class="kpis">
@@ -185,11 +207,12 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--faint);font
           <div class="kpi"><b>+412%</b><span>ROI of best campaign</span></div>
         </div>
         <ul>
-          <li><b>Star schema:</b> 9 fact tables, 10 dimensions and a recipe bridge table, with 36 one-to-many relationships.</li>
           <li><b>Found the hidden problem:</b> growth came from one new branch while the existing estate shrank.</li>
-          <li><b>Six report pages</b> for different stakeholders, plus a branch drill-through page.</li>
+          <li><b>Star schema</b> of 9 facts and 10 dimensions, audited with 0 orphan keys across 36 relationships.</li>
+          <li><b>Calculation group</b> of 10 time-intelligence items, including like-for-like, replacing separate measures.</li>
+          <li><b>Model size cut 53%</b> (9.6 → 4.5 MB) with VertiPaq analysis, plus dynamic RLS and PBIP/TMDL in Git.</li>
         </ul>
-        <div class="stack"><span>Power BI</span><span>DAX</span><span>Power Query</span><span>Star schema</span><span>Python (synthetic data)</span></div>
+        <div class="stack"><span>Power BI</span><span>DAX</span><span>Calculation groups</span><span>RLS</span><span>PBIP / TMDL</span><span>Star schema</span></div>
         <div class="more"><a href="https://github.com/ahsan-habib-sunny/Dashboard-Power-BI" target="_blank" rel="noopener">View on GitHub →</a></div>
         </div>
       </article>
@@ -267,9 +290,9 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--faint);font
     <div class="skills">
       <div class="skill"><h4>Languages</h4><div class="stack"><span>SQL</span><span>Python</span><span>R</span><span>PySpark</span><span>DAX</span></div></div>
       <div class="skill"><h4>BI &amp; reporting</h4><div class="stack"><span>Power BI</span><span>Tableau</span><span>Looker Studio</span><span>Excel</span></div></div>
-      <div class="skill"><h4>Data platforms</h4><div class="stack"><span>Databricks</span><span>Snowflake</span><span>BigQuery</span><span>Google Cloud</span><span>SQL Server</span><span>AWS S3</span></div></div>
-      <div class="skill"><h4>Engineering</h4><div class="stack"><span>dbt</span><span>Airflow</span><span>Delta Lake</span><span>Git &amp; GitHub</span></div></div>
-      <div class="skill"><h4>Modelling</h4><div class="stack"><span>Kimball / star schema</span><span>Medallion</span><span>SCD Type 2</span><span>KPI design</span></div></div>
+      <div class="skill"><h4>Data platforms</h4><div class="stack"><span>Snowflake</span><span>Microsoft Fabric</span><span>Databricks</span><span>BigQuery</span><span>Google Cloud</span><span>SQL Server</span><span>AWS S3</span></div></div>
+      <div class="skill"><h4>Engineering</h4><div class="stack"><span>Dataflow Gen2</span><span>Incremental refresh</span><span>dbt</span><span>Airflow</span><span>Delta Lake</span><span>Git &amp; GitHub</span></div></div>
+      <div class="skill"><h4>Modelling</h4><div class="stack"><span>Kimball / star schema</span><span>Calculation groups</span><span>Row-level security</span><span>Medallion</span><span>SCD Type 2</span><span>KPI design</span></div></div>
       <div class="skill"><h4>Stats &amp; ML</h4><div class="stack"><span>A/B testing</span><span>Hypothesis testing</span><span>Regression</span><span>Time series</span><span>Clustering</span><span>Monte Carlo</span></div></div>
     </div>
   </div>
